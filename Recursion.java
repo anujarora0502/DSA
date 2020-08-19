@@ -39,6 +39,36 @@ public class Recursion{
        }
 
     }
+
+
+    public int coinChange(int[] coins, int amount) {
+        
+        int[] dp = new int[amount+1];
+        return coinChange(coins,amount,dp) == (int)1e8? -1:coinChange(coins,amount,dp);
+        
+    }
+
+    //  Coin Change problem on leetcode
+    
+    public static int coinChange(int[] coins, int amount, int[] dp){
+
+        if(amount == 0){
+            return dp[amount] = 0;
+        }
+
+        if(dp[amount]!=0) return dp[amount];
+
+        int minCoins = (int)1e8;
+
+        for(int ele : coins){
+            if(amount - ele >=0){
+                int Mcoin = coinChange(coins, amount-ele,dp);
+                if(Mcoin!= (int)1e8 && Mcoin+1 < minCoins) minCoins = Mcoin+1;
+            }
+        }
+
+        return dp[amount] = minCoins;
+      }
     
 
 
@@ -50,6 +80,10 @@ public class Recursion{
       TowerOfHanoi(3, 1, 2, 3);
 
     }
+
+    // Coin Change 2 problem on leetcode
+
+    
 
     public static void main(String[] args){
       
