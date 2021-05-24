@@ -1,41 +1,40 @@
 import java.util.*;
 
 public class practice {
-    public static void main(String[] args) {
-
-        Scanner scn = new Scanner(System.in);
-
-        int N = scn.nextInt();
-
-        int[] jobs = new int[N];
-
-        for (int i = 0; i < N; i++) {
-            jobs[i] = scn.nextInt();
-        }
-        
-        int M = scn.nextInt();
-
-        int[] employeesSkill = new int[M];
-
-        for (int i = 0; i < M; i++) {
-            employeesSkill[i] = scn.nextInt();
-        }
-
-        int[] employeesEndurance = new int[M];
-
-        for (int i = 0; i < M; i++) {
-            employeesEndurance[i] = scn.nextInt();
-        }
-
-        System.out.println(minimumShifts(N,M,jobs,employeesSkill,employeesEndurance));
-    }
-
-    public static int minimumShifts(int N,int M,int[] jobs,int[] X,int[] Y){
-        
+    public static class Int {
          
-        return 0;
+        int a;
 
-
+        Int(){
+            this.a = 0;
+        }
         
+        Int(int a){
+            this.a = a;
+        }
+        
+        public int value(){
+            return this.a;
+        }
+        
+    }
+    
+    
+    public static void main(String []args){
+       
+       Int a = new Int(10);
+       Int b = new Int(15);
+       
+       swap(a,b);
+       
+       System.out.println(a.value()+" "+b.value());
+    }
+    
+   
+    public static void swap(Int a, Int b){
+        Int temp = new Int();
+        temp= a;
+        a = b;
+        b = temp;
     }
 }
